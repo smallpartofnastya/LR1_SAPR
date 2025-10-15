@@ -1,1 +1,66 @@
+module apb_master(apb_interface apb_if);
 
+    always_ff @(posedge apb_if.PCLK or negedge apb_if.PRESETn) begin
+        if (!apb_if.PRESETn) begin 
+	apb_if.PSEL    = 0;   
+        apb_if.PENABLE = 0;   
+        apb_if.PWRITE  = 0;    
+        apb_if.PADDR   = 0;   
+        apb_if.PWDATA  = 0;    
+    	apb_if.PRDATA  = 0;
+
+        $display("[APB_MASTER] Reset : Start");  
+    endfunction
+
+	
+    task write(input logic [31:0] waddr, input logic [31:0] wdata);
+        $display("\n[APB_MASTER] Write: %05d, d data: %03d", waddr, wdata);
+        
+        apb_if.PSEL    = 1;   
+        apb_if.PENABLE = 0;  
+        apb_if.PWRITE  = 1;   
+        apb_if.PADDR   = waddr; 
+        apb_if.PWDATA  = wdata; 
+
+        @(posedge apb_if.PCLK); 
+        
+        
+        apb_if.PENABLE = 1;   
+
+        @(posedge apb_if.PCLK iff apb_if.PREADY); 
+        @(posedge apb_if.PCLK); 
+        
+        
+        apb_if.PSEL    = 0;   
+        apb_if.PENABLE = 0;   
+	@(posedge apb_if.PCLK);
+        if(apb_if.PSLVERR) $display("[APB_MASTER] ERROR WRITE");
+        else $display("[APB_MASTER] Write completed \n"); 
+	
+    endtask
+
+    
+    task read(input logic [31:0] raddr);
+	logic [31:0] rdata = '0;
+        apb_if.PSEL    = 1;    
+        apb_if.PENABLE = 0;    
+        apb_if.PWRITE  = 0;  
+        apb_if.PADDR   = raddr;
+	$display("[APB_MASTER] READ from addr: %5d", raddr);
+        
+        @(posedge apb_if.PCLK);
+        
+        apb_if.PENABLE = 1;   
+        @(posedge apb_if.PCLK iff apb_if.PREADY);
+        @(posedge apb_if.PCLK);
+
+        rdata = apb_if.PRDATA; 
+        $display("[APB_MASTER] READ:d rdata = %4d", rdata[31:0]);  
+        
+        apb_if.PSEL    = 0;   
+        apb_if.PENABLE = 0;    
+        
+        $display("[APB_MASTER] Read completed \n");  
+    endtask 
+   
+ endclass
