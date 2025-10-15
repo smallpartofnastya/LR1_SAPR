@@ -26,7 +26,7 @@ interface apb_interface;
     );
     
     
-    modport dut_mp (
+    modport slave_mp (
         input  PCLK,  
         input  PRESETn, 
         input  PSEL,    

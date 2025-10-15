@@ -2,7 +2,7 @@
 `include "apb_interface.sv"
 `include "apb_master.sv"
 
-module tb_dut();
+module tb_apb();
     logic clk, reset, rdata;
     apb_interface apb_if();
 
@@ -18,9 +18,9 @@ module tb_dut();
 
     apb_slave apb_slave (apb_if.slave_mp);
     apb_master apb_master (apb_if.master_mp);
-    initial begin
-	
-	@(posedge rst_n);
+    
+   initial begin
+	@(posedge reset);
 
 	$display("\n\t=====[TEST] test 1. Write and Read =====");
 	apb_master.write(0, 17);
@@ -29,7 +29,7 @@ module tb_dut();
 	apb_master.write(8, "APB");
 	$display("\n\t=====[TEST] test 3. Read =====");
 	apb_master.read(8);
-	#15
+	#15;
     end
 
 endmodule

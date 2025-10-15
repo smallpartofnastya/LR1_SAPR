@@ -1,25 +1,31 @@
-D:/Labs/LR1_SAPR/APB/apb_master.sv {1 {vlog -work work -vopt -sv D:/Labs/LR1_SAPR/APB/apb_master.sv
+D:/Labs/LR1_SAPR/APB/apb_master.sv {1 {vlog -work work -vopt -sv -stats=none D:/Labs/LR1_SAPR/APB/apb_master.sv
 Questa Intel Starter FPGA Edition-64 vlog 2024.3 Compiler 2024.09 Sep 10 2024
-Start time: 23:40:09 on Oct 15,2025
-vlog -reportprogress 300 -work work -vopt -sv D:/Labs/LR1_SAPR/APB/apb_master.sv 
-End time: 23:40:09 on Oct 15,2025, Elapsed time: 0:00:00
+-- Compiling module apb_master
 
-} {} {}} D:/Labs/LR1_SAPR/APB/tb.sv {1 {vlog -work work -vopt -sv D:/Labs/LR1_SAPR/APB/tb.sv
-Questa Intel Starter FPGA Edition-64 vlog 2024.3 Compiler 2024.09 Sep 10 2024
-Start time: 23:40:09 on Oct 15,2025
-vlog -reportprogress 300 -work work -vopt -sv D:/Labs/LR1_SAPR/APB/tb.sv 
-End time: 23:40:09 on Oct 15,2025, Elapsed time: 0:00:00
+Top level modules:
+	apb_master
 
-} {} {}} D:/Labs/LR1_SAPR/APB/apb_interface.sv {1 {vlog -work work -vopt -sv D:/Labs/LR1_SAPR/APB/apb_interface.sv
+} {} {}} D:/Labs/LR1_SAPR/APB/tb.sv {1 {vlog -work work -vopt -sv -stats=none D:/Labs/LR1_SAPR/APB/tb.sv
 Questa Intel Starter FPGA Edition-64 vlog 2024.3 Compiler 2024.09 Sep 10 2024
-Start time: 23:40:08 on Oct 15,2025
-vlog -reportprogress 300 -work work -vopt -sv D:/Labs/LR1_SAPR/APB/apb_interface.sv 
-End time: 23:40:08 on Oct 15,2025, Elapsed time: 0:00:00
+-- Compiling interface apb_interface
+-- Compiling module apb_master
+-- Compiling module tb_apb
 
-} {} {}} D:/Labs/LR1_SAPR/APB/apb_slave.sv {1 {vlog -work work -vopt -sv D:/Labs/LR1_SAPR/APB/apb_slave.sv
+Top level modules:
+	tb_apb
+
+} {} {}} D:/Labs/LR1_SAPR/APB/apb_interface.sv {1 {vlog -work work -vopt -sv -stats=none D:/Labs/LR1_SAPR/APB/apb_interface.sv
 Questa Intel Starter FPGA Edition-64 vlog 2024.3 Compiler 2024.09 Sep 10 2024
-Start time: 23:40:09 on Oct 15,2025
-vlog -reportprogress 300 -work work -vopt -sv D:/Labs/LR1_SAPR/APB/apb_slave.sv 
-End time: 23:40:09 on Oct 15,2025, Elapsed time: 0:00:00
+-- Compiling interface apb_interface
+
+Top level modules:
+	--none--
+
+} {} {}} D:/Labs/LR1_SAPR/APB/apb_slave.sv {1 {vlog -work work -vopt -sv -stats=none D:/Labs/LR1_SAPR/APB/apb_slave.sv
+Questa Intel Starter FPGA Edition-64 vlog 2024.3 Compiler 2024.09 Sep 10 2024
+-- Compiling module apb_slave
+
+Top level modules:
+	apb_slave
 
 } {} {}}
