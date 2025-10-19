@@ -22,13 +22,18 @@ module tb_apb();
    initial begin
 	@(posedge reset);
 
-	$display("\n\t=====[TEST] test 1. Write and Read =====");
-	apb_master.write(0, 17);
-	apb_master.read(0);
-	$display("\n\t=====[TEST] test 2. Write =====");
-	apb_master.write(8, "APB");
-	$display("\n\t=====[TEST] test 3. Read =====");
-	apb_master.read(8);
+	$display("\n\t=====[TEST] test 1. Write and Read nomer po spisku =====");
+	apb_master.write('h0, 17);
+	apb_master.read('h0);
+	$display("\n\t=====[TEST] test 2. Write and Read date =====");
+	apb_master.write('h4, 32'd19102025);
+	apb_master.read('h4);
+	$display("\n\t=====[TEST] test 3. Write and Read Familiya =====");
+	apb_master.write('h8, "Tsyb");
+	apb_master.read('h8);
+	$display("\n\t=====[TEST] test 4. Write and Read Name =====");
+	apb_master.write('hC, "Anas");
+	apb_master.read('hC);
 	#15;
     end
 
