@@ -1,3 +1,7 @@
 # LR1_SAPR Tsybulya Anastasia 409
-Was added opporrtunity to generate many random numbers
+Программа на С++ для генерации нескольких случайных чисел
 Обновление README файла в исходной ветке
+Разрешение конфликта
+Добавление ветки для разработки APB
+Разработка APB_master, APB_slave, APB_interface, testbench
+Добавлена финальная версия APB с do файлом и тегом 
